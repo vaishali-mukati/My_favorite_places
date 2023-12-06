@@ -6,5 +6,10 @@ class UserPlaceNotifire extends StateNotifier<List<Place>> {
 
   void addPlace(String title) {
     final newPlace = Place(title: title);
+    state = [newPlace, ...state];
   }
 }
+
+final userPlacesProvider =
+    StateNotifierProvider<UserPlaceNotifire, List<Place>>(
+        (ref) => UserPlaceNotifire());
